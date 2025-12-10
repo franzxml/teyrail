@@ -1,6 +1,6 @@
 /*
- * Style Dasar Teyrail (V14 - Rebrand)
- * Focus: Genshin & HSR, Prompt Box, Solid Footer
+ * Style Dasar Teyrail (V15 - Visual Balance)
+ * Fix: Smaller Hero Image, Bigger Game Logos
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-    max-width: 1000px; /* Sedikit lebih ramping untuk fokus 2 game */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -59,7 +59,6 @@ body {
 .hero {
     background-color: #fff;
     padding: 60px 0 80px 0;
-    min-height: auto; 
     display: flex;
     align-items: center;
 }
@@ -68,7 +67,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
+    gap: 40px; /* Gap diperkecil sedikit */
 }
 
 .hero-content {
@@ -79,40 +78,16 @@ body {
 .hero-image {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Tetap di tengah kolomnya */
     align-items: center;
 }
 
-/* Prompt Box Styling */
-.prompt-box {
-    background: #f8f9fa;
-    border: 2px dashed #ccc;
-    border-radius: 12px;
-    padding: 25px;
-    width: 100%;
-    text-align: left;
-    position: relative;
-}
-
-.prompt-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #888;
-    margin-bottom: 10px;
-    display: block;
-    letter-spacing: 1px;
-}
-
-.prompt-text {
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    color: #333;
-    background: #fff;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #eee;
-    word-break: break-all;
+/* RESIZE: Gambar Hero Lebih Kecil & Proporsional */
+.hero-image img {
+    width: 100%;       /* Responsif */
+    max-width: 420px;  /* Dibatasi maksimal 420px (sebelumnya full container) */
+    height: auto;
+    border-radius: 20px; /* Opsional: jika ingin sudut gambar membulat */
 }
 
 .hero-title {
@@ -142,10 +117,9 @@ body {
 
 .game-grid {
     display: grid;
-    /* Ubah ke 2 Kolom untuk Genshin & HSR */
     grid-template-columns: repeat(2, 1fr); 
     gap: 40px;
-    max-width: 800px; /* Batasi lebar agar rapi di tengah */
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -171,10 +145,10 @@ body {
     border-color: #1a1a1a;
 }
 
-/* Logo di dalam Card */
+/* RESIZE: Logo Game Lebih Besar */
 .game-logo {
-    height: 60px; /* Ukuran Logo */
-    width: auto;
+    height: 100px; /* Diperbesar dari 60px menjadi 100px */
+    width: auto;   /* Lebar menyesuaikan proporsi */
     margin-bottom: 25px;
     object-fit: contain;
 }
@@ -191,7 +165,7 @@ body {
     font-weight: 500;
 }
 
-/* --- Footer Fix (Absolute Position Method) --- */
+/* --- Footer Fix --- */
 .footer-wrapper {
     position: relative;
     width: 100%;
@@ -199,7 +173,7 @@ body {
 
 .footer-decoration {
     position: absolute;
-    top: -80px; /* Tarik ke atas */
+    top: -80px;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -212,7 +186,6 @@ body {
     display: block;
     width: calc(100% + 2px);
     height: 80px;
-    /* Teknik overlap untuk menutup celah */
     transform: translateY(1px); 
 }
 
@@ -291,6 +264,12 @@ body {
         flex-direction: column-reverse;
         text-align: center;
     }
+    
+    /* Pada mobile, gambar hero jangan terlalu kecil juga */
+    .hero-image img {
+        max-width: 300px; 
+    }
+
     .game-grid { grid-template-columns: 1fr; }
     .footer-content {
         flex-direction: column;
