@@ -1,6 +1,6 @@
 /*
- * Style Dasar Genhowa (V8 - Premium Gaming Polish)
- * Fix: Cyberpunk Image, Glass Button, Seamless Footer
+ * Style Dasar Genhowa (V9 - Clean & Solid)
+ * Fix: Matte Button, Seamless Footer, & Robot Theme
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -34,8 +34,8 @@ body {
     background-color: #ffffff;
     padding: 1rem 0;
     width: 100%;
-    /* Shadow yang lebih halus dan lebar */
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    /* Shadow halus standar */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -54,10 +54,10 @@ body {
 
 .navbar .brand {
     font-size: 1.5rem;
-    font-weight: 800; /* Extra Bold */
+    font-weight: 800;
     color: #1a1a1a;
     text-decoration: none;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
 }
 
 /* Search Box */
@@ -70,19 +70,18 @@ body {
 .search-box input {
     width: 100%;
     padding: 12px 70px 12px 50px;
-    border-radius: 12px; /* Lebih kotak modern */
-    border: 1px solid #e5e5e5;
-    background-color: #fcfcfc;
+    border-radius: 8px; /* Sudut sedikit membulat tapi tegas */
+    border: 1px solid #e0e0e0;
+    background-color: #f8f8f8;
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     outline: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .search-box input:focus {
-    border-color: #000;
+    border-color: #333;
     background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .search-icon {
@@ -92,7 +91,7 @@ body {
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .search-shortcut {
@@ -101,13 +100,12 @@ body {
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.75rem;
-    color: #666;
-    background: #f0f0f0;
+    color: #777;
+    background: #eaeaea;
     padding: 4px 8px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    pointer-events: none;
+    border-radius: 4px;
     font-weight: 600;
+    pointer-events: none;
 }
 
 /* Nav Links - Login Button */
@@ -123,34 +121,31 @@ body {
     color: #1a1a1a;
     text-decoration: none;
     font-weight: 600;
-    border: 2px solid #1a1a1a; /* Border sedikit tebal */
-    padding: 10px 28px;
-    border-radius: 50px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1.5px solid #1a1a1a;
+    padding: 8px 24px;
+    border-radius: 6px; /* Konsisten dengan input */
+    transition: all 0.2s ease;
 }
 
 .navbar .nav-links a.login-btn:hover { 
     background-color: #1a1a1a;
     color: #fff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* --- Hero Section --- */
 .hero {
     background-color: #fff;
-    padding: 60px 0 140px 0; /* Padding bawah ekstra untuk kompensasi wave footer */
-    min-height: 90vh;
+    padding: 60px 0 120px 0;
+    min-height: 85vh;
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 1;
 }
 
 .hero .hero-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 70px;
+    gap: 60px;
 }
 
 .hero-content {
@@ -162,115 +157,109 @@ body {
     flex: 1;
     display: flex;
     justify-content: center;
-    position: relative;
+    align-items: center;
 }
 
-/* Gambar 3D Cyberpunk */
+/* Gambar Robot: Clean & Floating */
 .hero-image img {
-    max-width: 100%;
+    max-width: 90%; /* Sedikit lebih kecil agar rapi */
     height: auto;
-    border-radius: 24px;
-    /* Shadow neon halus */
-    box-shadow: 0 30px 60px -10px rgba(110, 50, 250, 0.3);
-    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
-    transition: transform 0.6s ease;
+    /* Efek bayangan hitam lembut di bawah (grounding) */
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+    /* Animasi float pelan */
+    animation: float 5s ease-in-out infinite;
 }
 
-.hero-image img:hover {
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.03);
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
 }
 
 .hero-title {
-    font-size: 3.8rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 25px;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
     color: #1a1a1a;
-    letter-spacing: -2px;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 45px;
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 40px;
     max-width: 90%;
-    font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
-/* --- Premium Button (Updated) --- */
+/* --- CLEAN BUTTON STYLE (No Purple Glow) --- */
 .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    /* Gradient yang lebih "Gaming/Tech" (Deep Purple ke Black) */
-    background: linear-gradient(135deg, #2b2b2b 0%, #000000 100%);
-    color: #fff;
-    padding: 18px 50px;
-    border-radius: 16px; /* Modern Soft Square */
-    border: 1px solid rgba(255,255,255,0.1); /* Border halus */
+    display: inline-block;
+    /* Solid Black/Dark Grey */
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 16px 48px;
+    border-radius: 8px; /* Sudut kotak modern */
+    border: none;
     cursor: pointer;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    /* Shadow Glow */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.2); 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
-    position: relative;
-    overflow: hidden;
+    /* Shadow hitam natural */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-primary:hover {
-    transform: translateY(-5px);
-    /* Glow menjadi lebih kuat saat hover */
-    box-shadow: 0 20px 40px rgba(100, 50, 250, 0.3), inset 0 1px 0 rgba(255,255,255,0.2);
-    border-color: rgba(100, 50, 250, 0.5);
+    /* Sedikit lebih terang saat hover untuk feedback */
+    background-color: #333333;
+    /* Naik sedikit */
+    transform: translateY(-2px);
+    /* Shadow tetap hitam/netral */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-/* --- Footer Decoration (Seamless Fix) --- */
+/* --- Footer Decoration Fix --- */
 .footer-wrapper {
     position: relative;
     width: 100%;
-    /* Margin top negatif untuk menarik footer ke atas konten hero jika perlu, 
-       tapi lebih aman kita mainkan posisi SVG-nya */
-    margin-top: 0; 
+    margin-top: 0;
 }
 
 .footer-decoration {
     position: absolute;
-    /* Naikkan SVG sedikit lebih tinggi untuk overlap background putih hero */
-    top: -60px; 
+    /* Posisikan tepat di atas footer */
+    top: -59px; /* Sesuaikan dengan tinggi SVG (60px - 1px overlap) */
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
-    z-index: 2; /* Di atas konten footer */
-    pointer-events: none; /* Agar tidak menghalangi klik */
+    z-index: 2;
+    pointer-events: none;
 }
 
 .footer-decoration svg {
     position: relative;
-    display: block;
-    width: calc(100% + 2px); /* Lebihkan dikit untuk anti-aliasing */
+    display: block; /* Mencegah white-space inline */
+    width: calc(100% + 2px);
     height: 60px;
-    /* Penting: block display menghilangkan gap whitespace bawaan inline */
-    display: block; 
+    /* MARGIN NEGATIF: Kunci menghilangkan garis putih */
+    margin-bottom: -1px; 
 }
 
-/* Samakan warna fill ini dengan background .footer */
+/* Warna SVG */
 .footer-decoration .shape-fill {
-    fill: #f8f9fa; 
+    fill: #f8f9fa; /* Sama persis dengan bg footer */
 }
 
 .footer {
-    background-color: #f8f9fa; /* Warna abu sangat muda (premium) */
+    background-color: #f8f9fa;
     color: #333;
-    padding: 40px 0 80px 0; /* Padding atas dikurangi karena sudah ada wave */
+    padding: 40px 0 60px 0;
     position: relative;
-    border-top: none !important; /* Pastikan tidak ada border */
-    /* Tambahan negative margin-top untuk memaksa nempel ke wave jika ada celah */
-    margin-top: -1px; 
+    /* Pastikan tidak ada margin/border aneh */
+    border: none;
+    outline: none;
 }
 
 .footer-content {
@@ -282,34 +271,31 @@ body {
 }
 
 .footer-left h3 {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #999;
+    letter-spacing: 1px;
+    color: #555;
 }
 
 .footer-right {
     text-align: right;
     max-width: 450px;
-    position: relative;
-    padding-right: 25px;
-    border-right: 4px solid #1a1a1a; /* Ganti garis dekorasi ke kanan */
+    border-right: 3px solid #1a1a1a;
+    padding-right: 20px;
 }
 
 .footer-quote {
     font-family: 'Georgia', serif;
     font-style: italic;
-    font-size: 1.3rem;
-    color: #333;
-    line-height: 1.5;
+    font-size: 1.2rem;
+    color: #444;
 }
 
-/* Social Icons Round */
 .social-links {
     display: flex;
-    gap: 12px;
+    gap: 10px;
 }
 
 .social-item {
@@ -319,31 +305,35 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.3s;
-    padding: 12px 24px;
-    border-radius: 12px;
+    padding: 10px 20px;
+    border-radius: 6px;
     background: #fff;
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    border: 1px solid #ddd;
+    transition: all 0.2s;
 }
 
 .social-item:hover {
     background: #1a1a1a;
     color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #1a1a1a;
 }
 
 /* Responsif */
 @media (max-width: 768px) {
-    .hero-title { font-size: 2.8rem; }
-    
-    .footer-right { 
-        text-align: center; 
-        padding-right: 0;
-        border-right: none;
+    .navbar .container-fluid {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
     }
-    
-    .footer-decoration { top: -40px; }
-    .footer-decoration svg { height: 40px; }
+    .hero .hero-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero-title { font-size: 2.5rem; }
+    .footer-right {
+        text-align: center;
+        border: none;
+        padding-right: 0;
+    }
+    .social-links { justify-content: center; }
 }

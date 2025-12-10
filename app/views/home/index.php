@@ -1,7 +1,7 @@
 <?php
 /**
- * View: Home Index (V8)
- * * Update: High-End Cyberpunk Abstract Image
+ * View: Home Index (V9)
+ * * Update: Clean Robot Mascot
  */
 ?>
 
@@ -23,7 +23,7 @@
             </div>
 
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1635322966219-b75ed372eb01?q=80&w=1000&auto=format&fit=crop" alt="Genhowa Cyberpunk Interface Art">
+                <img src="https://images.unsplash.com/photo-1589254065831-402d76b96297?q=80&w=1000&auto=format&fit=crop" alt="Cute Robot Vector Style">
             </div>
 
         </div>
