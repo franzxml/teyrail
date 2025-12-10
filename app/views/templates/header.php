@@ -14,6 +14,6 @@
 <body>
     <nav class="navbar">
         <div class="container-fluid">
-            <a href="<?= BASEURL; ?>" class="brand" id="brandLink">Genhowa</a>
+            <a href="<?= BASEURL; ?>" class="brand" id="brandLink">Teyrail</a>
         </div>
     </nav>

@@ -1,6 +1,6 @@
 /*
- * Style Dasar Genhowa (V13 - Aesthetic Fix)
- * Fix: Seamless Footer BG, Abstract Hero, Icon Cards
+ * Style Dasar Teyrail (V14 - Rebrand)
+ * Focus: Genshin & HSR, Prompt Box, Solid Footer
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -24,17 +24,16 @@ body {
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1000px; /* Sedikit lebih ramping untuk fokus 2 game */
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* --- Navbar (Minimalis Clean) --- */
+/* --- Navbar --- */
 .navbar {
     background-color: #ffffff;
     padding: 1.5rem 0;
     width: 100%;
-    /* Tidak ada shadow/border agar menyatu dengan hero */
     box-shadow: none; 
     position: sticky;
     top: 0;
@@ -59,8 +58,7 @@ body {
 /* --- Hero Section --- */
 .hero {
     background-color: #fff;
-    /* Padding bawah besar agar tidak menabrak kartu */
-    padding: 40px 0 80px 0; 
+    padding: 60px 0 80px 0;
     min-height: auto; 
     display: flex;
     align-items: center;
@@ -85,21 +83,36 @@ body {
     align-items: center;
 }
 
-/* Gambar Abstrak: Floating & Shadow Halus */
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-    /* Shadow lembut berwarna biru/ungu */
-    box-shadow: 0 25px 50px -12px rgba(100, 100, 255, 0.15);
-    animation: float 6s ease-in-out infinite;
-    object-fit: cover;
+/* Prompt Box Styling */
+.prompt-box {
+    background: #f8f9fa;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    padding: 25px;
+    width: 100%;
+    text-align: left;
+    position: relative;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
+.prompt-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #888;
+    margin-bottom: 10px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.prompt-text {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #333;
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    word-break: break-all;
 }
 
 .hero-title {
@@ -121,7 +134,7 @@ body {
 
 /* --- Game Cards Section --- */
 .game-section {
-    padding: 0 0 100px 0; /* Padding bawah untuk wave footer */
+    padding: 0 0 120px 0;
     background: #fff;
     position: relative;
     z-index: 1;
@@ -129,27 +142,27 @@ body {
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    /* Ubah ke 2 Kolom untuk Genshin & HSR */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px;
+    max-width: 800px; /* Batasi lebar agar rapi di tengah */
+    margin: 0 auto;
 }
 
 .game-card {
     background: #fff;
-    border: 1px solid #f0f0f0;
-    border-radius: 16px;
-    padding: 35px 25px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 40px 30px;
     text-align: center;
     text-decoration: none;
     color: #333;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
 }
 
 .game-card:hover {
@@ -158,54 +171,62 @@ body {
     border-color: #1a1a1a;
 }
 
-/* Icon SVG Styling */
-.card-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 20px;
-    color: #1a1a1a; /* Warna Ikon Hitam */
-    transition: transform 0.3s ease;
-}
-
-.game-card:hover .card-icon {
-    transform: scale(1.1);
+/* Logo di dalam Card */
+.game-logo {
+    height: 60px; /* Ukuran Logo */
+    width: auto;
+    margin-bottom: 25px;
+    object-fit: contain;
 }
 
 .game-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
 .game-card span {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #888;
     font-weight: 500;
 }
 
-/* --- Footer Fix (Background Image Method) --- */
-/* Metode ini paling ampuh untuk menghilangkan garis putih */
+/* --- Footer Fix (Absolute Position Method) --- */
+.footer-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.footer-decoration {
+    position: absolute;
+    top: -80px; /* Tarik ke atas */
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.footer-decoration svg {
+    display: block;
+    width: calc(100% + 2px);
+    height: 80px;
+    /* Teknik overlap untuk menutup celah */
+    transform: translateY(1px); 
+}
+
+.footer-decoration .shape-fill {
+    fill: #f9f9f9;
+}
+
 .footer {
     position: relative;
     background-color: #f9f9f9;
     color: #333;
-    padding: 60px 0 50px 0;
-    margin-top: 80px; /* Jarak dari konten atas */
-}
-
-/* Pseudo-element untuk Wave */
-.footer::before {
-    content: '';
-    position: absolute;
-    top: -60px; /* Tinggi Wave */
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    /* SVG Wave Data URI (Encoded) - Warna fill #f9f9f9 */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f9f9f9' fill-opacity='1' d='M0,96L80,112C160,128,320,160,480,160C640,160,800,128,960,112C1120,96,1280,96,1360,96L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-    z-index: 1;
+    padding: 20px 0 60px 0;
+    margin-top: 0;
+    border: none;
 }
 
 .footer-content {
@@ -213,18 +234,16 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 40px;
-    position: relative;
-    z-index: 2; /* Di atas background */
+    gap: 30px;
 }
 
 .footer-left h3 {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #999;
+    letter-spacing: 1px;
+    color: #888;
 }
 
 .footer-right {
@@ -238,7 +257,7 @@ body {
     font-family: 'Georgia', serif;
     font-style: italic;
     font-size: 1.15rem;
-    color: #555;
+    color: #444;
 }
 
 .social-links {
@@ -259,14 +278,11 @@ body {
     border: 1px solid #e0e0e0;
     transition: all 0.2s;
     font-size: 0.9rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
 .social-item:hover {
     background: #1a1a1a;
     color: #fff;
-    border-color: #1a1a1a;
-    transform: translateY(-2px);
 }
 
 /* Responsif */
@@ -286,7 +302,4 @@ body {
         padding-right: 0;
     }
     .social-links { justify-content: center; }
-    .footer::before {
-        background-size: cover; /* Agar wave tidak gepeng di mobile */
-    }
 }
