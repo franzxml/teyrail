@@ -1,6 +1,6 @@
 /*
- * Style Dasar Genhowa (Final Polish)
- * Fix: Search Box White, Consistent Text, & Footer
+ * Style Dasar Genhowa (Final V6)
+ * Fix: Premium Button, Split Footer, & Graphic Design Vibe
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -60,7 +60,7 @@ body {
     cursor: pointer;
 }
 
-/* Search Box Updated: White Background */
+/* Search Box */
 .search-box {
     position: relative;
     width: 100%;
@@ -69,11 +69,10 @@ body {
 
 .search-box input {
     width: 100%;
-    padding: 10px 70px 10px 45px; /* Padding kanan disesuaikan untuk "CTRL + K" */
+    padding: 10px 70px 10px 45px;
     border-radius: 50px;
-    /* Border dipertegas sedikit karena background putih */
     border: 1px solid #d1d1d1;
-    background-color: #ffffff; /* Putih bersih */
+    background-color: #ffffff;
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     outline: none;
@@ -95,7 +94,6 @@ body {
     opacity: 0.5;
 }
 
-/* Badge shortcut Updated Style */
 .search-shortcut {
     position: absolute;
     right: 15px;
@@ -111,6 +109,7 @@ body {
     font-weight: 600;
 }
 
+/* Nav Links - Sisa Login */
 .navbar .nav-links {
     list-style: none;
     display: flex;
@@ -119,20 +118,27 @@ body {
 
 .navbar .nav-links li { margin-left: 30px; }
 
-.navbar .nav-links a {
-    color: #666;
+/* Styling khusus tombol login di navbar agar beda dikit */
+.navbar .nav-links a.login-btn {
+    color: #1a1a1a;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    border: 1px solid #1a1a1a;
+    padding: 8px 20px;
+    border-radius: 50px;
     transition: all 0.3s ease;
 }
 
-.navbar .nav-links a:hover { color: #000; }
+.navbar .nav-links a.login-btn:hover { 
+    background-color: #1a1a1a;
+    color: #fff;
+}
 
 /* --- Hero Section --- */
 .hero {
     background-color: #fff;
     padding: 100px 0;
-    min-height: 80vh;
+    min-height: 85vh; /* Sedikit lebih tinggi */
     display: flex;
     align-items: center;
 }
@@ -155,68 +161,118 @@ body {
     justify-content: center;
 }
 
-/* Gambar Content: Rounded & Shadow */
+/* Gambar 3D Graphic Design Vibe */
 .hero-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Efek timbul */
-    object-fit: cover;
+    /* Tidak perlu border-radius jika gambarnya objek 3D floating */
+    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.15)); /* Shadow lembut */
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
 }
 
 .hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
+    font-size: 3.2rem; /* Lebih besar sedikit */
+    font-weight: 800; /* Lebih tebal */
+    line-height: 1.1;
+    margin-bottom: 25px;
     color: #1a1a1a;
+    letter-spacing: -1px;
 }
 
-/* Subtitle */
 .hero-subtitle {
     font-size: 1.1rem;
-    color: #555; /* Sedikit lebih gelap agar kontras */
-    margin-bottom: 35px;
-    max-width: 95%;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 90%;
 }
 
+/* --- Premium Button Style --- */
 .btn-primary {
     display: inline-block;
-    background-color: #1a1a1a;
+    /* Gradient Hitam ke Abu Gelap */
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
     color: #fff;
-    padding: 14px 45px;
+    padding: 16px 50px; /* Lebih besar */
     border-radius: 50px;
     border: none;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    /* Shadow Glow Halus */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efek Kilau (Sheen) saat hover */
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
 }
 
 .btn-primary:hover {
-    background-color: #333;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
 
-/* --- Footer Updated --- */
+.btn-primary:hover::after {
+    left: 100%;
+}
+
+/* --- Footer Split Layout --- */
 .footer {
     background-color: #fff;
     color: #333;
-    text-align: center;
-    padding: 80px 0 60px 0; /* Padding lebih lega */
+    padding: 60px 0;
     border-top: 1px solid #f0f0f0;
 }
 
-.footer h3 {
-    margin-bottom: 25px;
-    font-weight: 600;
+/* Container Footer menjadi Flexbox */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertikal center */
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-left h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-right {
+    text-align: right;
+    max-width: 400px;
+}
+
+.footer-quote {
+    font-family: 'Georgia', serif; /* Font serif untuk quotes */
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.5;
 }
 
 .social-links {
     display: flex;
-    justify-content: center;
     gap: 15px;
 }
 
@@ -228,16 +284,15 @@ body {
     align-items: center;
     gap: 8px;
     transition: all 0.3s;
-    padding: 10px 20px;
-    border-radius: 50px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-size: 0.9rem;
 }
 
 .social-item:hover {
     background: #1a1a1a;
     color: #fff;
-    border-color: #1a1a1a;
 }
 
 /* Responsif */
@@ -248,9 +303,20 @@ body {
         padding: 15px 20px;
     }
     .navbar-center { order: 3; width: 100%; }
+    
     .hero .hero-wrapper {
         flex-direction: column-reverse;
         text-align: center;
     }
-    .hero-title { font-size: 2.2rem; }
+    
+    .hero-title { font-size: 2.5rem; }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-right { text-align: center; }
+    
+    .social-links { justify-content: center; }
 }

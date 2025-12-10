@@ -1,7 +1,7 @@
 <?php
 /**
  * View: Home Index
- * * Update: Uniform Text & Reliable Image
+ * * Update: Graphic Design Abstract Image
  */
 ?>
 
@@ -23,7 +23,7 @@
             </div>
 
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estetik Gaming Setup">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/metaverse-technology-illustration-download-in-svg-png-gif-file-formats--virtual-reality-vr-tech-future-augmented-ar-pack-science-illustrations-4447477.png" alt="Abstract Graphic Design Illustration">
             </div>
 
         </div>

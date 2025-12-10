@@ -32,9 +32,7 @@
 
             <div class="navbar-right">
                 <ul class="nav-links">
-                    <li><a href="<?= BASEURL; ?>">Beranda</a></li>
-                    <li><a href="<?= BASEURL; ?>/about">Tentang</a></li>
-                    <li><a href="<?= BASEURL; ?>/login">Login</a></li>
+                    <li><a href="<?= BASEURL; ?>/login" class="login-btn">Login</a></li>
                 </ul>
             </div>
 
