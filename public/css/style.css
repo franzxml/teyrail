@@ -1,6 +1,6 @@
 /*
- * Style Dasar Triverse (V3.0 - Feature Expansion)
- * Update: Styles for Character Grid, Search, and Tracking Dashboard
+ * Style Dasar Triverse (V3.2 - Light Footer Restoration)
+ * Update: Full CSS dengan Footer Light Mode yang sudah diperbaiki
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -18,7 +18,7 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    background-color: #fcfcfc; /* Sedikit off-white agar tidak menyilaukan */
+    background-color: #fcfcfc; /* Off-white background */
     color: #333;
     overflow-x: hidden;
 }
@@ -55,7 +55,7 @@ body {
     letter-spacing: -1px;
 }
 
-/* --- Hero Section (Home) --- */
+/* --- Hero Section --- */
 .hero {
     background-color: #fff;
     padding: 60px 0 80px 0;
@@ -106,7 +106,7 @@ body {
     line-height: 1.7;
 }
 
-/* --- Game Cards Section (Home) --- */
+/* --- Game Cards Section --- */
 .game-section {
     padding: 0 0 120px 0;
     background: #fff;
@@ -145,6 +145,7 @@ body {
     border-color: #1a1a1a;
 }
 
+/* Wrapper Logo untuk presisi layout */
 .card-logo-wrapper {
     height: 130px; 
     width: 100%;
@@ -161,6 +162,7 @@ body {
     max-height: 100%;
 }
 
+/* Ukuran spesifik logo */
 .logo-genshin { width: 160px; }
 .logo-hsr { width: 180px; }
 .logo-wuwa { height: 90px; width: auto; }
@@ -178,7 +180,7 @@ body {
     font-weight: 500;
 }
 
-/* --- PAGE: Character List (Genshin/Starrail/Wuwa) --- */
+/* --- Character List Page --- */
 .game-header-section {
     padding: 40px 0;
     background: #fff;
@@ -242,7 +244,7 @@ body {
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Responsive Grid */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 20px;
 }
 
@@ -323,7 +325,7 @@ body {
     color: #888;
 }
 
-/* --- PAGE: Character Detail (Tracking) --- */
+/* --- Tracking Detail Page --- */
 .detail-header {
     padding: 30px 0;
     background: #fff;
@@ -440,6 +442,107 @@ body {
     background: #333;
 }
 
+/* --- Footer Modern (Light Theme Restoration) --- */
+.footer-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 100px; /* Jarak dari konten di atasnya */
+}
+
+.footer-decoration {
+    position: absolute;
+    top: -80px; /* Menarik gelombang ke atas */
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.footer-decoration svg {
+    display: block;
+    width: calc(100% + 2px);
+    height: 80px; 
+}
+
+/* FIX: Warna Gelombang kita paksa jadi PUTIH KEKUNINGAN (sama dengan bg footer) */
+.footer-decoration .shape-fill {
+    fill: #f9f9f9; 
+}
+
+.footer {
+    position: relative;
+    background-color: #f9f9f9; /* LIGHT BACKGROUND */
+    color: #333; /* Teks kembali gelap */
+    padding: 20px 0 60px 0;
+    border: none;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-left h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #888; 
+}
+
+.footer-right {
+    text-align: right;
+    max-width: 500px;
+    border-right: none; 
+    padding-right: 0;
+}
+
+.footer-quote {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555; /* Warna quote disesuaikan untuk background terang */
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+/* Tombol Sosmed Light Mode */
+.social-item {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 50px; 
+    background: #fff; /* Background putih */
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.social-item:hover {
+    background: #1a1a1a;
+    color: #fff; 
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-item svg {
+    stroke-width: 2px;
+}
+
 /* Responsif */
 @media (max-width: 900px) {
     .game-grid { grid-template-columns: repeat(2, 1fr); }
@@ -454,7 +557,21 @@ body {
     .hero-image img { max-width: 300px; }
     .game-grid { grid-template-columns: 1fr; } 
     
-    /* Mobile Detail View */
     .tracking-grid { grid-template-columns: 1fr; }
     .header-content-wrapper { flex-direction: column; align-items: stretch; text-align: center; }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
 }
