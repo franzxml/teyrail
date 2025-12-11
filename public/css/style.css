@@ -1,6 +1,6 @@
 /*
- * Style Dasar Teyrail (V15 - Visual Balance)
- * Fix: Smaller Hero Image, Bigger Game Logos
+ * Style Dasar Triverse (V2.0 - Rebrand)
+ * Update: Support 3 Columns Grid for WuWa
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px; /* Diperlebar sedikit agar 3 kolom muat nyaman */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -67,7 +67,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px; /* Gap diperkecil sedikit */
+    gap: 40px;
 }
 
 .hero-content {
@@ -78,16 +78,15 @@ body {
 .hero-image {
     flex: 1;
     display: flex;
-    justify-content: center; /* Tetap di tengah kolomnya */
+    justify-content: center;
     align-items: center;
 }
 
-/* RESIZE: Gambar Hero Lebih Kecil & Proporsional */
 .hero-image img {
-    width: 100%;       /* Responsif */
-    max-width: 420px;  /* Dibatasi maksimal 420px (sebelumnya full container) */
+    width: 100%;       
+    max-width: 420px;  
     height: auto;
-    border-radius: 20px; /* Opsional: jika ingin sudut gambar membulat */
+    border-radius: 20px;
 }
 
 .hero-title {
@@ -115,11 +114,12 @@ body {
     z-index: 1;
 }
 
+/* GRID UPDATE: Menggunakan repeat 3 untuk 3 game */
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 40px;
-    max-width: 800px;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Gap sedikit diperkecil agar muat */
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -127,7 +127,7 @@ body {
     background: #fff;
     border: 1px solid #eee;
     border-radius: 20px;
-    padding: 40px 30px;
+    padding: 40px 20px; /* Padding samping dikurangi sedikit */
     text-align: center;
     text-decoration: none;
     color: #333;
@@ -145,27 +145,26 @@ body {
     border-color: #1a1a1a;
 }
 
-/* RESIZE: Logo Game Lebih Besar */
 .game-logo {
-    height: 100px; /* Diperbesar dari 60px menjadi 100px */
-    width: auto;   /* Lebar menyesuaikan proporsi */
+    height: 90px; /* Sedikit diperkecil agar seimbang di 3 kolom */
+    width: auto;   
     margin-bottom: 25px;
     object-fit: contain;
 }
 
 .game-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.15rem; /* Font size disesuaikan */
     font-weight: 700;
     margin-bottom: 8px;
 }
 
 .game-card span {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #888;
     font-weight: 500;
 }
 
-/* --- Footer Fix --- */
+/* --- Footer (CSS Lama tetap dipertahankan dengan sedikit penyesuaian) --- */
 .footer-wrapper {
     position: relative;
     width: 100%;
@@ -259,18 +258,23 @@ body {
 }
 
 /* Responsif */
+@media (max-width: 900px) {
+    /* Tablet: 2 kolom mungkin lebih baik, tapi 1 kolom lebih aman */
+    .game-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
     .hero .hero-wrapper {
         flex-direction: column-reverse;
         text-align: center;
     }
     
-    /* Pada mobile, gambar hero jangan terlalu kecil juga */
     .hero-image img {
         max-width: 300px; 
     }
 
-    .game-grid { grid-template-columns: 1fr; }
+    .game-grid { grid-template-columns: 1fr; } /* Mobile: 1 kolom */
+    
     .footer-content {
         flex-direction: column;
         text-align: center;

@@ -1,14 +1,16 @@
 <?php
 /**
- * Config Teyrail
+ * Config Triverse
+ * * File konfigurasi utama untuk konstanta database dan base URL.
+ * * Update: Rebranding dari Genhowa/Teyrail ke Triverse.
  */
 
-// PASTIKAN: Ganti 'teyrail.test' sesuai nama folder proyek kamu di Laragon
-// Jika folder masih 'genhowa', pakai 'http://genhowa.test'
-define('BASEURL', 'http://teyrail.test');
+// Base URL Aplikasi
+// Pastikan folder project di local server bernama 'triverse' atau sesuaikan di sini.
+define('BASEURL', 'http://triverse.test');
 
-// DB Config (Default Laragon biasanya root, tanpa password)
+// Konfigurasi Database
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'teyrail'); // Sesuaikan nama database jika sudah buat
+define('DB_NAME', 'triverse'); // Update nama DB agar sesuai (opsional)
